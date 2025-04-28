@@ -9,14 +9,33 @@ The focus here is:
 
 ## Defining accessibility
 
-Some articles that define accessibility are Handy and Niemiere...(@handy1997measuring). Hand
+Some articles that define accessibility are Handy and Niemiere...(@handy1997measuring). 
+
+
+
+
+
 
 ## Measuring accessiblity
 
-Here are some bullet points
+1. It proposed a location-based measure of accessibility to urban functions and to employment.(@Benenson2011)
+* based on the estimate of the  travel time between (O)rigin and (D)estination; Transpor tation (M)ode: public (B)us, and private (C)ar.
+*  Cartravel time (CTT):  = Walk time from origin to the parking place  + Car trip time + Walk time from the final parking place to destination
+*
+2. (@Geurs2004)distinguish between four types of accessibility  measures:
+Infrastructure-based measures, which provide insight into the performance or ser
+vice level of transport infrastructure (e.g. ‘the average travel speed on the road
+ network’).– Location-based measures, which provide insight in the accessibility of locations
+ (e.g. ‘the number of jobs within 30 min travel from origin locations’).– Person-based measures, analyzing accessibility at the individual level taking into
+ account personal possibilities and constraints (e.g. ‘the number of activities in
+ which an individual can participate at a given time’).– Utility-basedmeasures,analyzingthe(economic) benefits that people derive from
+ access to the spatially distributed activities
 
-*  A location-based measure of accessibility to urban functions and to employment. 
-* * based on the estimate of the  travel time between (O)rigin and (D)estination; Transpor tation (M)ode: public (B)us, and private (C)ar.
-*  *  Cartravel time (CTT):  = Walktimefromorigin to the parking place  + Car trip time + Walk time from the final parking place to destination
 
 ##
+
+
+## Importance of accessbility
+In order to address transport-related environmental impacts through transportation planning and policy, it is necessary to assess the scale and quality of transport alternatives available to people.(@Benenson2011)
+
+From an equity perspective, too, a comparison between accessibility for different transport modes is required
