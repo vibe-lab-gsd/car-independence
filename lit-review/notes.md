@@ -23,13 +23,11 @@ Some articles that define accessibility are Handy and Niemiere...(@handy1997meas
 *  Cartravel time (CTT):  = Walk time from origin to the parking place  + Car trip time + Walk time from the final parking place to destination
 *
 2. (@Geurs2004)distinguish between four types of accessibility  measures:
-Infrastructure-based measures, which provide insight into the performance or ser
-vice level of transport infrastructure (e.g. ‘the average travel speed on the road
- network’).– Location-based measures, which provide insight in the accessibility of locations
- (e.g. ‘the number of jobs within 30 min travel from origin locations’).– Person-based measures, analyzing accessibility at the individual level taking into
- account personal possibilities and constraints (e.g. ‘the number of activities in
- which an individual can participate at a given time’).– Utility-basedmeasures,analyzingthe(economic) benefits that people derive from
- access to the spatially distributed activities
+* Infrastructure-based measures- the performance or service level of transport infrastructure (e.g. ‘the average travel speed on the road
+ network’)
+* Location-based measures, which provide insight in the accessibility of locations  (e.g. ‘the number of jobs within 30 min travel from origin locations’)
+* Person-based measures-accessibility at the individual level taking into account personal possibilities and constraints (‘the number of activities where an individual can participate’)
+* Utility-basedmeasures,analyzingthe(economic) benefits that people derive from access to the spatially distributed activities
 
 
 ##
