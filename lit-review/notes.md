@@ -16,8 +16,7 @@ Some articles that define accessibility are Handy and Niemiere...(@handy1997meas
 Here are some bullet points
 
 *  A location-based measure of accessibility to urban functions and to employment. 
-*  based on the estimate of the  travel time between (O)rigin and (D)estination. We define them for a given transpor tation (M)ode: public (B)us, and private (C)ar.
-*  *  Cartravel time (CTT): 
- CTT = Walktimefromorigin to the parking place  + Car trip time + Walk time from the final parking place to destination
+* * based on the estimate of the  travel time between (O)rigin and (D)estination; Transpor tation (M)ode: public (B)us, and private (C)ar.
+*  *  Cartravel time (CTT):  = Walktimefromorigin to the parking place  + Car trip time + Walk time from the final parking place to destination
 
 ##
