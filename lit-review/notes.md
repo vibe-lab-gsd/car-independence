@@ -10,10 +10,13 @@ The focus here is:
 ## Defining accessibility
 
 Some articles that define accessibility are Handy and Niemiere...(@handy1997measuring). 
+
 The ease with which any land-use activity can be reached from a location using a particular transport system (@Dalvi1976TheMO)
+
 The freedom of individuals to  decide whether or not to participate in different activities (@Burns1979TransportationTA)
+
 Difference between the access and accessibility- 
-** Access is used when talking about a person’s perspective, accessibility when using a location’s perspective.(@Geurs2004)
+*  Access is used when talking about a person’s perspective, accessibility when using a location’s perspective.(@Geurs2004)
 
 
 
