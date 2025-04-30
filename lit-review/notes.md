@@ -10,9 +10,10 @@ The focus here is:
 ## Defining accessibility
 
 Some articles that define accessibility are Handy and Niemiere...(@handy1997measuring). 
-
-
-
+The ease with which any land-use activity can be reached from a location using a particular transport system (@Dalvi1976TheMO)
+The freedom of individuals to  decide whether or not to participate in different activities (@Burns1979TransportationTA)
+Difference between the access and accessibility- 
+** Access is used when talking about a person’s perspective, accessibility when using a location’s perspective.(@Geurs2004)
 
 
 
@@ -23,8 +24,7 @@ Some articles that define accessibility are Handy and Niemiere...(@handy1997meas
 *  Cartravel time (CTT):  = Walk time from origin to the parking place  + Car trip time + Walk time from the final parking place to destination
 *
 2. (@Geurs2004)distinguish between four types of accessibility  measures:
-* Infrastructure-based measures- the performance or service level of transport infrastructure (e.g. ‘the average travel speed on the road
- network’)
+* Infrastructure-based measures- the performance or service level of transport infrastructure (e.g. ‘the average travel speed on the road network’)
 * Location-based measures, which provide insight in the accessibility of locations  (e.g. ‘the number of jobs within 30 min travel from origin locations’)
 * Person-based measures-accessibility at the individual level taking into account personal possibilities and constraints (‘the number of activities where an individual can participate’)
 * Utility-basedmeasures,analyzingthe(economic) benefits that people derive from access to the spatially distributed activities
