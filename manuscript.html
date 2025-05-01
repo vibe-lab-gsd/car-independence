@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Measuring a Predicting the Potential for Car Independence</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="manuscript_files/libs/clipboard/clipboard.min.js"></script>
+<script src="manuscript_files/libs/quarto-html/quarto.js"></script>
+<script src="manuscript_files/libs/quarto-html/popper.min.js"></script>
+<script src="manuscript_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="manuscript_files/libs/quarto-html/anchor.min.js"></script>
+<link href="manuscript_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="manuscript_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="manuscript_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="manuscript_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="manuscript_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#defining-car-dependence" id="toc-defining-car-dependence" class="nav-link" data-scroll-target="#defining-car-dependence">Defining car dependence</a>
+  <ul class="collapse">
+  <li><a href="#relative-accessibility-as-car-dependence" id="toc-relative-accessibility-as-car-dependence" class="nav-link" data-scroll-target="#relative-accessibility-as-car-dependence">Relative accessibility as car dependence</a></li>
+  </ul></li>
+  <li><a href="#data-and-methods" id="toc-data-and-methods" class="nav-link" data-scroll-target="#data-and-methods">Data and methods</a>
+  <ul class="collapse">
+  <li><a href="#potential-for-car-independence-metric" id="toc-potential-for-car-independence-metric" class="nav-link" data-scroll-target="#potential-for-car-independence-metric">Potential for Car Independence Metric</a></li>
+  <li><a href="#validation-of-potential-car-independence-metric" id="toc-validation-of-potential-car-independence-metric" class="nav-link" data-scroll-target="#validation-of-potential-car-independence-metric">Validation of potential car independence metric</a></li>
+  <li><a href="#predictors-of-the-potential-for-car-independence" id="toc-predictors-of-the-potential-for-car-independence" class="nav-link" data-scroll-target="#predictors-of-the-potential-for-car-independence">Predictors of the potential for car independence</a>
+  <ul class="collapse">
+  <li><a href="#land-area" id="toc-land-area" class="nav-link" data-scroll-target="#land-area">Land area</a></li>
+  <li><a href="#attraction-density" id="toc-attraction-density" class="nav-link" data-scroll-target="#attraction-density">Attraction density</a></li>
+  <li><a href="#attraction-concentration" id="toc-attraction-concentration" class="nav-link" data-scroll-target="#attraction-concentration">Attraction concentration</a></li>
+  <li><a href="#intersection-density" id="toc-intersection-density" class="nav-link" data-scroll-target="#intersection-density">Intersection density</a></li>
+  <li><a href="#average-nodal-degree" id="toc-average-nodal-degree" class="nav-link" data-scroll-target="#average-nodal-degree">Average nodal degree</a></li>
+  <li><a href="#transit-stop-density" id="toc-transit-stop-density" class="nav-link" data-scroll-target="#transit-stop-density">Transit stop density</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Measuring a Predicting the Potential for Car Independence</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>No more than 200 words</p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Mostly signposting</p>
+</section>
+<section id="defining-car-dependence" class="level1">
+<h1>Defining car dependence</h1>
+<p>Cite prior literature on defining car dependence</p>
+<section id="relative-accessibility-as-car-dependence" class="level2">
+<h2 class="anchored" data-anchor-id="relative-accessibility-as-car-dependence">Relative accessibility as car dependence</h2>
+<p>Which destinations?</p>
+<p>Which mode?</p>
+<p>Selection of the decay function</p>
+</section>
+</section>
+<section id="data-and-methods" class="level1">
+<h1>Data and methods</h1>
+<p>I propose the ratio of average car-free accessibility to average accessibility by car as a measure of the potential for car independence. I have calculated this metric for each of 917 metropolitan and micropolitan areas (hereafter referred to as regions) in the United States, and for the 81,144 census tracts (hereafter referred to as neighborhoods) contained within those regions. This section describes how I calculated this metric, how I validated it as a predictor of observed travel behavior, and how I determined the degree to which certain built environment characteristics predict the potential for car independence in regions and neighborhoods across the United States.</p>
+<section id="potential-for-car-independence-metric" class="level2">
+<h2 class="anchored" data-anchor-id="potential-for-car-independence-metric">Potential for Car Independence Metric</h2>
+<p>I calculated the potential for car independence (PCI) for a region or neighborhood as the ratio of destination access without a car to destination access with a car, as shown in <a href="#eq-pci-def" class="quarto-xref">Equation&nbsp;1</a>.</p>
+<p><span id="eq-pci-def"><span class="math display">\[
+PCI_{point} = \frac{A_{carless}}{A_{car}}
+\tag{1}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(A_{carless}\)</span> = Average accessibility by walking and, where available, public transport and</p></li>
+<li><p><span class="math inline">\(A_{car}\)</span> = Average accessibility by private car.</p></li>
+</ul>
+<p>I calculated the average accessibility within a particular mode category for a region or neighborhood as the average of the accessibility of the centroid of each constituting census block (which generally corresponds to a physical block: an area bounded by streets or possibly other physical boundaries), weighted according to the number of households in each block, as shown in <a href="#eq-weighted-avg" class="quarto-xref">Equation&nbsp;2</a>.</p>
+<p><span id="eq-weighted-avg"><span class="math display">\[
+A_{area} = \frac{\sum_{i}a_ihh_i}{\sum_{i}h_i}
+\tag{2}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(hh_i\)</span> = the number of households in a census block and</p></li>
+<li><p><span class="math inline">\(a_i\)</span> = the accessibility of the census block’s centroid.</p></li>
+</ul>
+<p>I took the number of households in each census block (<span class="math inline">\(hh_i\)</span>) from the 2020 Decennial Census using the tidycensus package in R <span class="citation" data-cites="tidycensus">(<a href="#ref-tidycensus" role="doc-biblioref">Walker and Herman 2023</a>)</span> to query data from the United States Census Bureau’s application programming interface (API). I calculated the accessibility of block centroids (<span class="math inline">\(a_i\)</span>) using the r5r package in R <span class="citation" data-cites="r5r">(<a href="#ref-r5r" role="doc-biblioref">Pereira et al. 2021</a>)</span> which uses the R5 routing engine to calculate gravity-based accessibility, as shown in <a href="#eq-access-def" class="quarto-xref">Equation&nbsp;3</a>.</p>
+<p><span id="eq-access-def"><span class="math display">\[
+a_i = \sum_{j}n_jg(tt_{ij})
+\tag{3}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(n_j\)</span> = the estimated number of attractions in block <em>j</em>, and</p></li>
+<li><p><span class="math inline">\(g(tt_{ij})\)</span> = the decay function of the travel time between block <em>i</em> and block <em>j</em>.</p></li>
+</ul>
+<p>For this research, I used a logistic decay function, as shown in <a href="#eq-logistic-decay" class="quarto-xref">Equation&nbsp;4</a> and illustrated in <a href="#fig-logistic-decay" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p><span id="eq-logistic-decay"><span class="math display">\[
+g(tt) = \frac{1}{1+e^{(tt - 30)/5}}
+\tag{4}\]</span></span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-logistic-decay" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-logistic-decay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="manuscript_files/figure-html/fig-logistic-decay-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-logistic-decay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Illustration of decay function used for calculating gravity-based accessibility
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The number of trip attractions in each block is intended to be roughly proportional to the number of non-home trip ends of household trips that might be generated by the block. I estimated this number using the parameters given in Table 4.4 of the National Highway Cooperative Research Program (NCHRP) Report 716 <span class="citation" data-cites="nchrp716">(<a href="#ref-nchrp716" role="doc-biblioref">National Academies of Sciences, Engineering, and Medicine 2012, 42</a>)</span>. This table summarized parameters used to estimate trip attraction in travel demand models used in regions across the United States. From this report, I combined Model 1’s parameters for home-based work trip attractions (<a href="#eq-hbw" class="quarto-xref">Equation&nbsp;5</a>), Model 3’s parameters for home-based non-work trips attractions (<a href="#eq-hbnw" class="quarto-xref">Equation&nbsp;6</a>), and Model 2’s parameters for non-home-based trip attractions (<a href="#eq-nhb" class="quarto-xref">Equation&nbsp;7</a>) to arrive at <a href="#eq-total-attr" class="quarto-xref">Equation&nbsp;8</a> to estimate the total number of trips attractions in each census block. Again, the number of households in each census block was taken from the 2020 Decennial Census. The numbers of jobs in the basic, retail, and service sectors were taken from the United States Census Bureau’s LEHD Origin-Destination Employment Statistics (LODES) Data <span class="citation" data-cites="lehd">(<a href="#ref-lehd" role="doc-biblioref">United States Census Bureau 2025</a>)</span> for 2018.</p>
+<p><span id="eq-hbw"><span class="math display">\[
+hbw = 1.2E_{total}
+\tag{5}\]</span></span></p>
+<p><span id="eq-hbnw"><span class="math display">\[
+hbnw = 0.7hh + 0.7E_{basic} + 8.4E_{retail} + 3.5E_{service}
+\tag{6}\]</span></span></p>
+<p><span id="eq-nhb"><span class="math display">\[
+nhb = 1.4hh + 6.9E_{retail} + 0.9E_{service}
+\tag{7}\]</span></span></p>
+<p><span id="eq-total-attr"><span class="math display">\[
+a = 2.1hh + 1.9E_{basic} + 16.5E_{retail} + 5.6E_{service}
+\tag{8}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(hbw\)</span> = the number of home-based work trip attractions in a census block</p></li>
+<li><p><span class="math inline">\(hbnw\)</span> = the number of home-based non-work trip attractions in a census block,</p></li>
+<li><p><span class="math inline">\(nhb\)</span> = the number of non-home-based trip attractions in a census block,</p></li>
+<li><p><span class="math inline">\(a\)</span> = the total number of attractions in a census block,</p></li>
+<li><p><span class="math inline">\(hh\)</span> = the number of households in a census block,</p></li>
+<li><p><span class="math inline">\(E_{total}\)</span> - the total number of jobs in a census block,</p></li>
+<li><p><span class="math inline">\(E_{basic}\)</span> - the total number of goods-producing jobs in a census block,</p></li>
+<li><p><span class="math inline">\(E_{retail}\)</span> - the total number of retail jobs in a census block, and</p></li>
+<li><p><span class="math inline">\(E_{service}\)</span> - the total number of service jobs in a census block.</p></li>
+</ul>
+</section>
+<section id="validation-of-potential-car-independence-metric" class="level2">
+<h2 class="anchored" data-anchor-id="validation-of-potential-car-independence-metric">Validation of potential car independence metric</h2>
+<p>The theoretical basis for PCI as a metropolitan-scale measure of the freedom travelers may have to forgo the car is straightforward: If a greater share of destinations that can be reached by car can also be reached without a car, then a person has a greater ability to choose car-free travel for some or all of their daily trips. A person may still choose to travel by car even when there are other alternatives, but if PCI is a valid measure of the potential for travelers to choose non-car modes, it is reasonable to expect it to correlate with observed mode choice.</p>
+<p>To test the validity of the PCI metric, I calculated the correlation between PCI and the share of workers in each metropolitan area commuting by each of four modes: private car, public transit, walking, and cycling, as well as vehicle ownership. I also estimated a set of regression models predicting each of those mode shares from PCI, controlling for each of the following sociodemographic characteristics:</p>
+<ul>
+<li><p>Percent of the population under the age of 18</p></li>
+<li><p>Percent of the population over the age of 65</p></li>
+<li><p>Percent of the population with a household income less than 200 percent of the federal poverty level.</p></li>
+</ul>
+</section>
+<section id="predictors-of-the-potential-for-car-independence" class="level2">
+<h2 class="anchored" data-anchor-id="predictors-of-the-potential-for-car-independence">Predictors of the potential for car independence</h2>
+<p>If PCI is a valid measure of the freedom that households have to use more sustainable modes of travel to meet their daily needs, then it would be useful for urban planners to understand what built environment and urban form characteristics are associated with higher values of PCI. I estimated neighborhood-level and region-level linear regression models to predict PCI based on the predictors described below. Each of the variables described below was calculated at the regional level and some were also calculated at the neighborhood level. The regional level model includes only regional level variables. The neighborhood-level model includes all regional-level variables as well as additional neighborhood-level variables.</p>
+<section id="land-area" class="level3">
+<h3 class="anchored" data-anchor-id="land-area">Land area</h3>
+<p>Regions with larger land areas contain larger distances. At one extreme, a region with very small geography footprint might include no possible origin-destination pairs that are not within a reasonable walking distance from one another, so smaller regions (in terms of area) have higher PCIs than larger ones. I calculated values for this predictor only at the regional level and included it in both the regional-level and neighborhood level models.</p>
+</section>
+<section id="attraction-density" class="level3">
+<h3 class="anchored" data-anchor-id="attraction-density">Attraction density</h3>
+<p>I calculated attraction density at the neighborhood level and at the regional level as the total number of attractions in an area divided by the total land area within an area. A higher density of attractions would likely generally reduce the average distance between households and trip attractions, making it more likely that trip attractions would be reachable within a given time both with and without a car. The region-level model predicting PCI includes only the region-level attraction density variable. The neighborhood-level model includes both the region-level and neighborhood-level attraction density variables in order to determine whether neighborhood-level or region-level attraction density has a greater influence on neighborhood-level PCI.</p>
+</section>
+<section id="attraction-concentration" class="level3">
+<h3 class="anchored" data-anchor-id="attraction-concentration">Attraction concentration</h3>
+<p>While attraction density may be a useful measure of the average trip distance within a region, the concentration of attractions better captures the variation in trip distances. I calculated attraction concentration (only at the region level) as a ratio of the regions land area to the total area of the smallest set of census blocks containing at least fifty percent of the region’s attractions, scaled to account for how much more than fifty percent of total regional attractions are included in this subset of census blocks (see <a href="#eq-AC" class="quarto-xref">Equation&nbsp;9</a>). If attractions are evenly distributed throughout a region with 100 equally-sized census blocks, this value would be two. If all attractions are concentrated in a single census block (in a region with 100 equally-sized census blocks), this value would be 200.</p>
+<p><span id="eq-AC"><span class="math display">\[
+AC = \left(\frac{area_{total}}{area_{attr50}}\right)\left(\frac{n_{attr50}}{0.5attr}\right)
+\tag{9}\]</span></span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(area_{jobs50}\)</span> = the total land area of the smallest number of census blocks containing at least 50 percent of all attractions in the region,</p></li>
+<li><p><span class="math inline">\(area_{total}\)</span> = the total land area of the region,</p></li>
+<li><p><span class="math inline">\(attr\)</span> = the total number of attractions in the region</p></li>
+<li><p><span class="math inline">\(n_{attr50}\)</span> = the number of attractions in the smallest number of blocks containing at least 50 percent of all attractions in the region</p></li>
+</ul>
+</section>
+<section id="intersection-density" class="level3">
+<h3 class="anchored" data-anchor-id="intersection-density">Intersection density</h3>
+<p>Intersection density is commonly associated with greater walkability because it is associated with shorter block lengths and consequently more direct pedestrian routes (CITE). I extracted intersection locations from the OpenStreetMap network, as downloaded using the osmdata R package <span class="citation" data-cites="osmdata">(<a href="#ref-osmdata" role="doc-biblioref">Mark Padgham et al. 2017</a>)</span> and calculated intersection density at both the neighborhood and region levels as the number of intersections per square kilometer of land area.</p>
+</section>
+<section id="average-nodal-degree" class="level3">
+<h3 class="anchored" data-anchor-id="average-nodal-degree">Average nodal degree</h3>
+<p>Average nodal degree is another common walkability network (CITE). The degree of an intersection is the number of street segments that connect to it. For example, a typical intersection in a grid network would have a nodel degree of four; a T-intersection would have a nodal degree of three; and the end of a cul-de-sac would have a nodal degree of one. The average nodal degree within an area is the average degree of all intersections within that area. A lower average nodal degree is associated with a more circuitous street network, and a higher average nodal degree is associated with more direct routes. I calculated average nodal degree at both the region and the neighborhood level.</p>
+</section>
+<section id="transit-stop-density" class="level3">
+<h3 class="anchored" data-anchor-id="transit-stop-density">Transit stop density</h3>
+<p>The presence and frequency of transit service would likely also have an effect on the potential for car independence. I calculated transit stop density (at the region and neighborhood levels) as the number of times a transit vehicle would stop within an area during a typical week. Of the 917 regions included in this analysis, xxx had any identified transit service. Regions and neighborhoods without transit service would have a value of zero for this predictor.</p>
+</section>
+</section>
+</section>
+<section id="results" class="level1 unnumbered">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Results</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-osmdata" class="csl-entry" role="listitem">
+Mark Padgham, Bob Rudis, Robin Lovelace, and Maëlle Salmon. 2017. <span>“Osmdata.”</span> <em>Journal of Open Source Software</em> 2 (14): 305. <a href="https://doi.org/10.21105/joss.00305">https://doi.org/10.21105/joss.00305</a>.
+</div>
+<div id="ref-nchrp716" class="csl-entry" role="listitem">
+National Academies of Sciences, Engineering, and Medicine. 2012. <em>Travel Demand Forecasting: Parameters and Techniques</em>. Washington, <span>DC</span>: The National Acadamies Press. <a href="https://doi.org/10.17226/14665">https://doi.org/10.17226/14665</a>.
+</div>
+<div id="ref-r5r" class="csl-entry" role="listitem">
+Pereira, Rafael H. M., Marcus Saraiva, Daniel Herszenhut, Carlos Kaue Vieira Braga, and Matthew Wigginton Conway. 2021. <span>“R5r: Rapid Realistic Routing on Multimodal Transport Networks with R5 in r.”</span> <em>Findings</em>. <a href="https://doi.org/10.32866/001c.21262">https://doi.org/10.32866/001c.21262</a>.
+</div>
+<div id="ref-lehd" class="csl-entry" role="listitem">
+United States Census Bureau. 2025. <span>“<span>LEHD</span> Origin-Destination Employment Statistics Data (2000 - 2024) [Computer File].”</span> Washington, <span>DC</span>. <a href="https://lehd.ces.census.gov/data/#lodes">https://lehd.ces.census.gov/data/#lodes</a>.
+</div>
+<div id="ref-tidycensus" class="csl-entry" role="listitem">
+Walker, Kyle, and Matt Herman. 2023. <em>Tidycensus: Load US Census Boundary and Attribute Data as ’Tidyverse’ and ’Sf’-Ready Data Frames</em>. <a href="https://CRAN.R-project.org/package=tidycensus">https://CRAN.R-project.org/package=tidycensus</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
