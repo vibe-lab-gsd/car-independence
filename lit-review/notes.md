@@ -32,6 +32,17 @@ Difference between the access and accessibility-
 * Person-based measures-accessibility at the individual level taking into account personal possibilities and constraints (‘the number of activities where an individual can participate’)
 * Utility-basedmeasures,analyzingthe(economic) benefits that people derive from access to the spatially distributed activities
 
+3. (@Liao2022) This study evaluates disparities in travel time between private car (car) and public transport (PT).
+* They developed a ratio metric- Travel Time Ratio (TTR) to compare PT to car performance 
+TTR = PT travel time / Car travel time
+
+* Temporal and Spatial Sensitivity
+t=The travel time disparity, as quantified by the travel time ratio R (pt travel time divided by the car travel time), varies widely during an average weekday, by location and time of day.
+
+
+
+
+
 
 ##
 
