@@ -42,23 +42,19 @@ TTR = PT travel time / Car travel time
 * Temporal and Spatial Sensitivity
 t=The travel time disparity, as quantified by the travel time ratio R (pt travel time divided by the car travel time), varies widely during an average weekday, by location and time of day.
 
-4.compares two modes of transits: PT-to-car travel time ratios
+4. (@Kuhnel2025)compares two modes of transits: PT-to-car travel time ratios
 PT travel time/car travel time to  worklocation
 
-5.  calculate a location-based accessibility ratio using the cumulative opportunities indicator, estimating the population reachable within 30 minutes by public transport versus car. A binary resistance function (1 if travel time ≤ 30 min, else 0) is used to compare spatial reach between modes:
+5. (@Kuhnel2025) calculate a location-based accessibility ratio using the cumulative opportunities indicator, estimating the population reachable within 30 minutes by public transport versus car. A binary resistance function (1 if travel time ≤ 30 min, else 0) is used to compare spatial reach between modes:
 
 $$acc_{ratio} = \frac{\sum population \times resistance_{PT}}{\sum population \times resistance_{car}}
 $$
 
 
-
-
-
-
 ## Importance of accessbility
 In order to address transport-related environmental impacts through transportation planning and policy, it is necessary to assess the scale and quality of transport alternatives available to people.(@Benenson2011)
-
 From an equity perspective, too, a comparison between accessibility for different transport modes is required
+
 
 ## Car-free VS Car less
 In (@brown2017a) talks about the nuanced two concepts
@@ -69,7 +65,7 @@ Car-less individuals make fewer trips overall, often due to limited mobility opt
 
 
 ## Accessibility and commute
-Several European studies observed an association between the PT accessibility of place of work and the use of PT for commuting.
+Several European studies observed an association between the PT accessibility of place of work and the use of PT for commuting.(@Kuhnel2025)
 
 
 ## How PCI fills the gap
