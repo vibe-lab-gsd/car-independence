@@ -40,10 +40,6 @@ TTR = PT travel time / Car travel time
 t=The travel time disparity, as quantified by the travel time ratio R (pt travel time divided by the car travel time), varies widely during an average weekday, by location and time of day.
 
 
-
-111
-
-
 ##
 
 
@@ -51,3 +47,11 @@ t=The travel time disparity, as quantified by the travel time ratio R (pt travel
 In order to address transport-related environmental impacts through transportation planning and policy, it is necessary to assess the scale and quality of transport alternatives available to people.(@Benenson2011)
 
 From an equity perspective, too, a comparison between accessibility for different transport modes is required
+
+Car-free VS Car less
+In (@brown2017a) talks about the nuanced two concepts
+Car-free individuals make more trips per day and rely more on public transit, biking, and walking.
+Car-free households choose not to own cars, often for environmental, lifestyle, or urban convenience reasons.
+Car-less households lack cars due to economic or situational constraints (e.g., low income, unemployment, disability).
+Car-less individuals make fewer trips overall, often due to limited mobility options and poorer transit access.
+
