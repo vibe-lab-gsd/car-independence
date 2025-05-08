@@ -20,7 +20,7 @@ Difference between the access and accessibility-
 
 Accessibility refers to possibilities and opportunities available for travel as well as actual participating in activities and reaching destinations of interest and relevance (@Burns1976)
 
-Acessibility is generally understood as this multidimensional concept, comprising physical (usually time and distances) as well as non-physical dimensions (e.g. perceptions and attitudes) 
+Acessibility is generally understood as this multidimensional concept, comprising physical (usually time and distances) as well as non-physical dimensions (e.g. perceptions and attitudes) （@Lattman2019）
 
 
 
