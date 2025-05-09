@@ -31,20 +31,22 @@ Access is used when talking about a person’s perspective, accessibility when u
 1. It proposed a location-based measure of accessibility to urban functions and to employment.(@Benenson2011)
 * based on the estimate of the  travel time between (O)rigin and (D)estination; Transpor tation (M)ode: public (B)us, and private (C)ar.
 *  Car travel time (CTT):  = Walk time from origin to the parking place  + Car trip time + Walk time from the final parking place to destination
-*
+
 2. (@Geurs2004)distinguish between four types of accessibility  measures:
 * Infrastructure-based measures- the performance or service level of transport infrastructure (e.g. ‘the average travel speed on the road network’)
 * Location-based measures, which provide insight in the accessibility of locations  (e.g. ‘the number of jobs within 30 min travel from origin locations’)
 * * Distance measures (isochronic/contour measures)
   * Potential accessibility measures ![image](https://github.com/user-attachments/assets/d66d8a05-564f-4b1d-94b0-b3ef84a75643)
 * Person-based measures-accessibility at the individual level taking into account personal possibilities and constraints (‘the number of activities where an individual can participate’)
-* Utility-basedmeasures,analyzing the (economic) benefits that people derive from access to the spatially distributed activities
+* Utility-basedmeasures,analyzing the (economic) benefits that people derive from access to the spatially distributed activities.
+  
 
 3. (@Liao2022) This study evaluates disparities in travel time between private car (car) and public transport (PT).
 * They developed a ratio metric- Travel Time Ratio (TTR) to compare PT to car performance 
 TTR = PT travel time / Car travel time
 * Temporal and Spatial Sensitivity
 t=The travel time disparity, as quantified by the travel time ratio R (pt travel time divided by the car travel time), varies widely during an average weekday, by location and time of day.
+
 
 4. (@Kuhnel2025)compares two modes of transits: PT-to-car travel time ratios
 * PT travel time/car travel time to  work location
