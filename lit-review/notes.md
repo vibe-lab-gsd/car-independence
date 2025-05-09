@@ -11,16 +11,16 @@ The focus here is:
 
 Some articles that define accessibility are Handy and Niemiere...(@handy1997measuring). 
 
-The ease with which any land-use activity can be reached from a location using a particular transport system (@Dalvi1976TheMO)
+* The ease with which any land-use activity can be reached from a location using a particular transport system (@Dalvi1976TheMO)
 
-The freedom of individuals to  decide whether or not to participate in different activities (@Burns1979TransportationTA)
+* The freedom of individuals to  decide whether or not to participate in different activities (@Burns1979TransportationTA)
 
-Difference between the access and accessibility- 
-*  Access is used when talking about a person’s perspective, accessibility when using a location’s perspective.(@Geurs2004)
+* Difference between the access and accessibility- 
+Access is used when talking about a person’s perspective, accessibility when using a location’s perspective.(@Geurs2004)
 
-Accessibility refers to possibilities and opportunities available for travel as well as actual participating in activities and reaching destinations of interest and relevance (@Burns1976)
+* Accessibility refers to possibilities and opportunities available for travel as well as actual participating in activities and reaching destinations of interest and relevance (@Burns1976)
 
-Acessibility is generally understood as this multidimensional concept, comprising physical (usually time and distances) as well as non-physical dimensions (e.g. perceptions and attitudes) （@Lattman2019）
+* Acessibility is generally understood as this multidimensional concept, comprising physical (usually time and distances) as well as non-physical dimensions (e.g. perceptions and attitudes) （@Lattman2019）
 
 
 
@@ -37,21 +37,18 @@ Acessibility is generally understood as this multidimensional concept, comprisin
 * Location-based measures, which provide insight in the accessibility of locations  (e.g. ‘the number of jobs within 30 min travel from origin locations’)
 * * Distance measures (isochronic/contour measures)
   * Potential accessibility measures ![image](https://github.com/user-attachments/assets/d66d8a05-564f-4b1d-94b0-b3ef84a75643)
-
 * Person-based measures-accessibility at the individual level taking into account personal possibilities and constraints (‘the number of activities where an individual can participate’)
 * Utility-basedmeasures,analyzing the (economic) benefits that people derive from access to the spatially distributed activities
 
 3. (@Liao2022) This study evaluates disparities in travel time between private car (car) and public transport (PT).
 * They developed a ratio metric- Travel Time Ratio (TTR) to compare PT to car performance 
 TTR = PT travel time / Car travel time
-
 * Temporal and Spatial Sensitivity
 t=The travel time disparity, as quantified by the travel time ratio R (pt travel time divided by the car travel time), varies widely during an average weekday, by location and time of day.
 
 4. (@Kuhnel2025)compares two modes of transits: PT-to-car travel time ratios
-PT travel time/car travel time to  worklocation
-
-5. (@Kuhnel2025) calculate a location-based accessibility ratio using the cumulative opportunities indicator, estimating the population reachable within 30 minutes by public transport versus car. A binary resistance function (1 if travel time ≤ 30 min, else 0) is used to compare spatial reach between modes:
+* PT travel time/car travel time to  work location
+* (@Kuhnel2025) calculatez a location-based accessibility ratio using the cumulative opportunities indicator, estimating the population reachable within 30 minutes by public transport versus car. A binary resistance function (1 if travel time ≤ 30 min, else 0) is used to compare spatial reach between modes:
 
 $$acc_{ratio} = \frac{\sum population \times resistance_{PT}}{\sum population \times resistance_{car}}
 $$
@@ -75,8 +72,8 @@ Several European studies observed an association between the PT accessibility of
 
 
 ## How PCI fills the gap
-1. As noted in (@Geurs2004)there is still no activity-based indicator that can be used to evaluate daily household-level activity travel patterns, and more research is needed to include an individual's spatial–temporal constraints. Therefore,the ratio-based PCI is a proxy for car dependence at the household or census-tract level, a powerful summary of how much harder it is to live without a car.
-2. The PCI metric is grounded in individual-level behavior, comparing what is accessible without a car to what is accessible with one,
+1. As noted in (@Geurs2004)there is still no activity-based indicator that can be used to evaluate daily household-level activity travel patterns, and more research is needed to include an individual's spatial–temporal constraints. Therefore,the ratio-based PCI is a proxy for car dependence at the household or census-tract level, a useful summary of how much harder it is to live without a car.
+2. The PCI metric is grounded in individual-level behavior, comparing what is accessible without a car to what is accessible with one.
 
 
 
